@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: south-toast-api
+ 
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://10.0.0.190:3306/healthmall_sail?useUnicode=true&characterEncoding=utf-8
+    username: healthmall_sail
+    password: healthmall_sail
+    driver-class-name: com.mysql.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20  
+    filters: stat,wall,log4j  
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+mybatis:
+    mapperLocations: classpath*:cn/south/**/dao/**/*Mapper.xml
+    config-location: classpath:mybatis-config.xml
+    
+management:
+    security:
+        enabled: false
+
+login:
+  password: 111111
+
